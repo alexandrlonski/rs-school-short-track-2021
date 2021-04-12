@@ -21,7 +21,6 @@
  *  [1, 1, 1]
  * ]
  */
-
 function minesweeper(matrix) {
   const matrixNew = new Array(matrix.length);
   const num = matrix[0].length;
@@ -32,16 +31,19 @@ function minesweeper(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < num; j++) {
       let count = 0;
-      if (matrix[i] !== undefined && matrix[i][j - 1] === true) {
+      if (matrix[i][j - 1] === true) {
         count++;
       }
-      if (matrix[i] !== undefined && matrix[i][j + 1] === true) {
+      if (matrix[i][j + 1] === true) {
         count++;
       }
       if (matrix[i - 1] !== undefined && matrix[i - 1][j - 1] === true) {
         count++;
       }
       if (matrix[i - 1] !== undefined && matrix[i - 1][j + 1] === true) {
+        count++;
+      }
+      if (matrix[i - 1] !== undefined && matrix[i - 1][j] === true) {
         count++;
       }
       if (matrix[i + 1] !== undefined && matrix[i + 1][j - 1] === true) {
@@ -53,14 +55,10 @@ function minesweeper(matrix) {
       if (matrix[i + 1] !== undefined && matrix[i + 1][j] === true) {
         count++;
       }
-      if (matrix[i - 1] !== undefined && matrix[i - 1][j] === true) {
-        count++;
-      }
+
       matrixNew[i][j] = count;
     }
   }
-
   return matrixNew;
 }
-
 module.exports = minesweeper;
