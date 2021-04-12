@@ -8,8 +8,9 @@
  * For aabbbc should return 2a3bc
  *
  */
+const str = 'aabbbc';
 function encodeLine(/* str */) {
-  throw new Error('Not implemented');
+  let res = '';
 }
-
+encodeLine(str);
 module.exports = encodeLine;
